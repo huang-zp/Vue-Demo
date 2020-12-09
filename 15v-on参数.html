@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    {{name}}
+
+<!--    1. stop-->
+<!--    事件冒泡: 点击按钮的时候,div监听也会触发, divClick函数也会运行-->
+<div @click="divClick">
+    aaa
+    <button @click="btn1Click()">按钮1</button>
+</div>
+
+<!--    通过stop修饰符阻止事件冒泡-->
+    <div @click="divClick">
+        aaa
+        <button @click.stop="btn1Click()">按钮2</button>
+    </div>
+
+
+
+<!--    2.prevent-->
+<!--    虽然会触发submitClick,但是也会执行默认事件也就是提交到百度-->
+    <form action="http://baidu.com">
+        <input type="submit" value="提交" @click="submitClick">
+    </form>
+
+<!--        使用prevent修饰符去阻止默认事件-->
+    <form action="http://baidu.com">
+        <input type="submit" value="提交" @click.prevent="submitClick">
+    </form>
+
+
+<!--&lt;!&ndash;    3.{keyAlias | keyCode}&ndash;&gt; 监听某个键盘的键帽-->
+    <input type="text" @keyup.enter="keyUp">
+
+<!--    4. once, 只触发一次-->
+<button @click.once="btn1Click">按钮</button>
+
+</div>
+<script src="js/vue.js"></script>
+
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            name: 'hello'
+        },
+        methods: {
+            btn1Click() {
+                console.log('btn1click')
+            },
+            divClick() {
+                console.log('divClick')
+            },
+            submitClick() {
+                console.log('submitClick')
+            },
+            keyUp() {
+                console.log('keymap')
+            }
+        }
+    })
+</script>
+</body>
+</html>

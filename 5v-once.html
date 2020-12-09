@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <h2>{{name + ' ' + name}}</h2>
+    <h2 v-once>{{name + ' ' + name}}</h2>
+<!--    在console中改name值-->
+</div>
+<script src="js/vue.js"></script>
+
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            name: 'hel',
+        }
+    })
+</script>
+
+</body>
+</html>

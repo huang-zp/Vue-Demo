@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            border: 1px solid #e9e9e9;
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        th, td {
+            padding: 8px 16px;
+            border: 1px solid #e9e9e9;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f7f7f7;
+            color: #5c6b77;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div v-if="books.length > 0">
+        <table>
+            <thead>
+            <tr>
+                <td></td>
+                <th>书籍名称</th>
+                <th>出版日期</th>
+                <th>价格</th>
+                <th>购买数量</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="(item,index) in books">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.data}}</td>
+                <td>{{item.price | showPrice}}</td>
+                <td>
+                    <button @click="decrement(index)" :disabled="item.count <= 1">-</button>
+                    {{item.count}}
+                    <button @click="increment(index)">+</button>
+                </td>
+                <td><button @click="removeHandle(index)">移除</button></td>
+
+            </tr>
+            </tbody>
+        </table>
+        <h2>总价格 {{totalPrice | showPrice}}</h2>
+    </div>
+    <h2 v-else> 购物车为空</h2>
+
+</div>
+<script src="js/vue.js"></script>
+
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            books: [
+                {
+                    id: 1,
+                    name: "<<nihao1>>",
+                    data: '2020',
+                    price: 11.00,
+                    count:1
+                },
+                {
+                    id: 2,
+                    name: "<<nihao2>>",
+                    data: '2020',
+                    price: 22.00,
+                    count:1
+                },
+                {
+                    id: 3,
+                    name: "<<nihao3>>",
+                    data: '2020',
+                    price: 33.00,
+                    count:1
+                },
+                {
+                    id: 4,
+                    name: "<<nihao4>>",
+                    data: '2020',
+                    price: 44.00,
+                    count:1
+                }
+            ]
+        },
+        methods: {
+            increment(index) {
+                this.books[index]['count'] ++
+            },
+            decrement(index) {
+                this.books[index]['count'] --
+            },
+            removeHandle(index) {
+                this.books.splice(index, 1)
+            }
+        },
+        computed: {
+          totalPrice() {
+              let totalPrice = 0
+              for (let i in this.books) {
+                  totalPrice += this.books[i].price * this.books[i].count
+              }
+              return totalPrice
+          }
+        },
+        filters: {
+            showPrice(price) {
+                return '￥' + price.toFixed(2)
+            }
+        }
+    })
+</script>
+</body>
+</html>

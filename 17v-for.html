@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    {{name}}
+
+    <h2 v-for="item in nameArray"> {{item}} </h2>
+
+    <h2 v-for="(item, index) in nameArray">{{index}} {{item}} </h2>
+
+<!--    遍历对象只遍历一个值，则是Value-->
+    <h2 v-for="value in nameObject">{{value}} </h2>
+
+    <h2 v-for="(value, key) in nameObject">{{value}} {{key}}</h2>
+
+    <h2 v-for="(value, key, index) in nameObject">{{value}} {{key}} {{index}}</h2>
+
+</div>
+<script src="js/vue.js"></script>
+
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            name: 'hello',
+            nameObject: {
+                zhangsan: 18,
+                lisi: 19,
+                wangwu: 20
+            },
+            nameArray: [
+                'zhangsan',
+                'lisi',
+                'wangwu'
+            ]
+        }
+    })
+</script>
+</body>
+</html>

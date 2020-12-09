@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+支持：
+
+push('aaa', 'bbb', 'ccc')
+pop()
+
+shift() 从头删除一个元素
+unshift('aaa', 'bbb', 'ccc') 从头添加元素
+
+splice() 删除元素、替换元素、插入元素
+第一个参数要开始操作的位置
+
+删除元素：第二个参数代表要删除几个元素
+
+替换元素：第二个参数代表要替换几个元素，后面是用于替换前面的元素
+
+插入元素：第二个参数，传入0，并且后面跟上要插入的元素
+
+sort()
+
+reverse()反转
+
+
+
+
+不支持：
+通过索引值修改数组中的元素（可以通过splice或者vue自带的set方法去解决（Vue.set(要修改的数组，索引值，修改后的值)））
+
+
+
+
+
+
+
+
+
+接收不确定值
+function sum(...nums) {
+
+}
+sum(1,2,3,4,5)
+</body>
+</html>

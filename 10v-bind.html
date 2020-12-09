@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+<!--    这是错误的。这里不可以使用mustance语法，只有content中才可以用-->
+
+<!--    <img src="{{url}}">-->
+    <img v-bind:src="url" alt="">
+
+<!--    语法糖写法-->
+    <img :src="url" alt="">
+    <a :href="baiduurl">baidu</a>
+
+</div>
+<script src="js/vue.js"></script>
+
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            url: 'https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BB1byOtM.img?h=1080&w=1440&m=6&q=60&o=f&l=f',
+            baiduurl: 'https://www.baidu.com'
+        }
+    })
+</script>
+</body>
+</html>

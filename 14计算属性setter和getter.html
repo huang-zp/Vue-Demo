@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h2>{{name1}} {{name2}}</h2>
+    <h2>{{FullName}}</h2>
+
+</div>
+<script src="js/vue.js"></script>
+
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            name1: 'hello',
+            name2: 'world'
+        },
+
+        // 计算属性会有缓存,多次调用,计算属性只用运行一次
+        computed: {
+
+            // 如果只有get方法的话就是只读属性
+            FullName: {
+                set: function (newName) {
+                    const names = newName.split(' ')
+                    this.name1 = names[0]
+                    this.name2 = names[1]
+                },
+                get: function () {
+                    return this.name1 + ' ' + this.name2
+                }
+            }
+
+
+          // // 只读属性的简写办法
+          // FullName: function () {
+          //     return this.name1 + ' ' + this.name2
+          // }
+
+        }
+    })
+</script>
+</body>
+</html>

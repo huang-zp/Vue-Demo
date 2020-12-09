@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .active {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+
+    <h2 v-bind:class="{active:true}">{{name}}</h2>
+
+<!--    <h2 v-bind:class="{类名:Booler值, line:isLine}">{{name}}</h2>-->
+    <h2 v-bind:class="{active:isActive, line:isLine}">{{name}}</h2>
+
+<!--    通过函数返回class属性-->
+    <h2 v-bind:class="getClass()">{{name}}</h2>
+
+<!--    合并class-->
+    <h2 class='title' v-bind:class="{active:isActive, line:isLine}">{{name}}</h2>
+
+<!--    数组语法-->
+    <h2 class='title' v-bind:class="['active', 'line']">{{name}}</h2>
+    <h2 class='title' v-bind:class="[varactive, 'line']">{{name}}</h2>
+
+    <button v-on:click="change">转换</button>
+</div>
+<script src="js/vue.js"></script>
+
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            name: 'hello',
+            isActive: true,
+            isLine: true,
+            varactive: 'active'
+        },
+        methods: {
+            change: function () {
+                this.isActive = !this.isActive
+            },
+            getClass: function () {
+                return {active:this.isActive, line:this.isLine}
+            }
+        }
+    })
+</script>
+</body>
+</html>

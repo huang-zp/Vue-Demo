@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <h2>当前计数：{{counter}}</h2>
+<!--    <button v-on:click="counter++">+</button>-->
+<!--    <button v-on:click="counter--">-</button>-->
+
+<!--    v-on：监听； 语法糖：@-->
+    <button v-on:click="increment">+</button>
+    <button v-on:click="decrement">-</button>
+
+<!--    语法糖写法-->
+    <button @click="increment">+</button>
+    <button @click="decrement">-</button>
+</div>
+<script src="js/vue.js"></script>
+
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            counter: 0
+        },
+        methods:{
+            increment: function () {
+                console.log('+')
+                // this代表当前对象app
+                this.counter++
+            },
+            decrement: function () {
+                console.log('-')
+                this.counter--
+            }
+        }
+    })
+</script>
+
+</body>
+</html>
