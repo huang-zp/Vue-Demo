@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+
+
+    <input type="checkbox" v-model="hobby" value="篮球"> 篮球
+    <input type="checkbox" v-model="hobby" value="足球"> 足球
+    <input type="checkbox" v-model="hobby" value="羽毛球"> 羽毛球
+
+    <h2>{{hobby}}</h2>
+
+<!--    注意这里的:for :id :value       都是动态绑定的-->
+    <label v-for="item in apihobby" :for="item">
+        <input type="checkbox" :value="item" :id="item" v-model="hobby"> {{item}}
+    </label>
+
+
+
+<br>
+
+
+
+<!--    1.修饰符 .lazy，不会实时绑定，需要敲回车-->
+    <input type="text" v-model.lazy="name">
+
+    <h2>{{name}}</h2>
+
+<!--    2.修饰符 .number, input会默认字符串绑定，即使你输入的是数字，如果想要赋值是数字类型 就.number-->
+
+
+<!--    3.修饰符 .trim 用户输入左右两边有空格，这个可以清除-->
+</div>
+<script src="js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            name:'1',
+            hobby:[],
+            apihobby: ['羽毛球', '篮球', '象棋']
+        }
+    })
+</script>
+</body>
+</html>

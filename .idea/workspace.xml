@@ -29,17 +29,14 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\HUANGZP\WebstormProjects\demo" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\HUANGZP\WebstormProjects\demo" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\HUANGZP\WebstormProjects\demo" />
+    </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.21v-model.html">
-    <configuration name="16v-show.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/demo/16v-show.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="JavaScript Debug.22v-model值绑定和修饰符.html">
     <configuration name="17v-for.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/demo/17v-for.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
@@ -52,13 +49,16 @@
     <configuration name="21v-model.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/demo/21v-model.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
+    <configuration name="22v-model值绑定和修饰符.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/demo/22v-model值绑定和修饰符.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.22v-model值绑定和修饰符.html" />
         <item itemvalue="JavaScript Debug.21v-model.html" />
         <item itemvalue="JavaScript Debug.20购物车.html" />
         <item itemvalue="JavaScript Debug.19点谁变红.html" />
         <item itemvalue="JavaScript Debug.17v-for.html" />
-        <item itemvalue="JavaScript Debug.16v-show.html" />
       </list>
     </recent_temporary>
   </component>
@@ -76,7 +76,7 @@
       <workItem from="1607307830829" duration="6866000" />
       <workItem from="1607390927973" duration="15034000" />
       <workItem from="1607440398306" duration="94000" />
-      <workItem from="1607479913097" duration="982000" />
+      <workItem from="1607479913097" duration="4265000" />
     </task>
     <servers />
   </component>
@@ -156,9 +156,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="404" y="173" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1607331040672" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1607417663907">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1607484018483">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1607417663907" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1607484018483" />
   </component>
 </project>
