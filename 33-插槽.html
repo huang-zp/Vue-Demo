@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <cpn><h2>替换无名默认</h2><h3 slot="left">替换左边</h3><h4 slot="right">替换右边</h4></cpn>
+</div>
+<script src="js/vue.js"></script>
+<template id="cpn">
+<div>
+    <h2>da</h2>
+    <slot name="left">默认</slot>
+    <slot name="right">默认</slot>
+    <slot>默认</slot>
+</div>
+</template>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            name: 'hello'
+        },
+        components: {
+            cpn: {
+                template: '#cpn'
+            }
+        }
+    })
+</script>
+</body>
+</html>
