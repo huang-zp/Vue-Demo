@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+<!--    监听自定义事件-->
+<cpn @click-event="getEvent"></cpn>
+</div>
+<script src="js/vue.js"></script>
+
+<template id="cpn">
+    <div>
+        <button v-for="item in categories" @click="emitEvent(item)">{{item.name}}</button>
+    </div>
+</template>
+<script>
+    const cpn = {
+        template: "#cpn",
+        data() {
+            return {
+                categories: [
+                    {name:'资产列表', id:'asset'},
+                    {name:'数据列表', id:'data'}
+                ]
+            }
+        },
+        methods: {
+            // 发射自定义事件
+            emitEvent(item) {
+                this.$emit('click-event', item)
+            }
+        }
+    }
+    const app = new Vue({
+        el: '#app',
+        data: {
+            name: 'hello'
+        },
+        components:{
+            cpn
+        },
+        methods: {
+            getEvent(item) {
+                console.log(item.name, item.id)
+            }
+        }
+    })
+</script>
+</body>
+</html>
