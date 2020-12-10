@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <cpn>
+    <template slot-scope="slot" slot="slotname">
+    <h2 v-for="item in slot.data">{{item}} -</h2>
+    </template>
+    </cpn>
+
+    <cpn>
+<!--        slot-scope这个是固定的，后面的="slot",随便起的名，去取传过来的data-->
+        <div slot-scope="slot" slot="slotname">
+            <h2 v-for="item in slot.data">{{item}} -</h2>
+        </div>
+    </cpn>
+</div>
+<script src="js/vue.js"></script>
+<template id="cpn">
+    <div>
+        <ul>
+           <slot :data="hobby" name="slotname"> <li v-for="item in hobby">{{item}} </li></slot>
+        </ul>
+        <ul>
+            <slot :data="hobby"> <li v-for="item in hobby">{{item}} </li></slot>
+        </ul>
+    </div>
+</template>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            name: 'hello'
+        },
+        components: {
+            cpn: {
+                template: '#cpn',
+                data() {
+                    return {
+                        hobby: ['象棋', '羽毛球']
+                    }
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>
