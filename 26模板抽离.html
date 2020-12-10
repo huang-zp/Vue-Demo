@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--    3.使用组件-->
+    <mycpn></mycpn>
+    <mycpn></mycpn>
+    <mycpn1></mycpn1>
+</div>
+<script src="js/vue.js"></script>
+<!--1-->
+<template id="mycpn1">
+    <h2>template</h2>
+</template>
+
+
+<!--2-->
+<script type="text/x-template" id="mycpn2"></script>
+<h2> text/x-template</h2>
+<script>
+
+    // 全局组件抽离
+    Vue.component('mycpn', {
+        template: "#mycpn1"
+    })
+
+    const app = new Vue({
+        el: '#app',
+        data: {
+            name: 'hello'
+        },
+        // 局部组件抽离
+        components: {
+            mycpn1: {
+                template: "#mycpn2"
+            }
+        }
+    })
+</script>
+</body>
+</html>

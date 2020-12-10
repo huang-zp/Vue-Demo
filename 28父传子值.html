@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <cpn :cname="name" :chobby="hobby"></cpn>
+</div>
+<script src="js/vue.js"></script>
+<template id="cpn">
+    <div>
+    <h2>{{cname}}</h2>
+    <h2>{{chobby}}</h2>
+    </div>
+</template>
+<script>
+
+    const cpn = {
+        template: "#cpn",
+        // props通过数组传过去
+        // props: ['chobby', 'cname'],
+
+        props: {
+            // 1.类型限制
+            // chobby: Array,
+            // cname: String
+
+            // 2.提供默认值和必传值
+            cname: {
+                type: String,
+                default: 'nihao',
+                required: true
+            },
+
+            //3.类型是对象或者数组时,默认值必须是一个函数
+
+            chobby: {
+                type: Array,
+                default() {
+                    return []
+                }
+            },
+
+            // 4.参数验证
+            // cname: {
+            //     validator(value) {
+            //         return value === 'hello'
+            //     }
+            // }
+        }
+    }
+
+    const app = new Vue({
+        el: '#app',
+        data: {
+            name: 'hell1o',
+            hobby: ['象棋', '羽毛球']
+        },
+        components: {
+            cpn
+        }
+    })
+</script>
+</body>
+</html>

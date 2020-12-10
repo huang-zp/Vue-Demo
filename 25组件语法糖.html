@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--    3.使用组件-->
+    <mycpn></mycpn>
+    <mycpn></mycpn>
+    <mycpn1></mycpn1>
+</div>
+<script src="js/vue.js"></script>
+
+<script>
+
+    // 全局组件语法糖
+    Vue.component('mycpn', {
+        template: `
+        <h2>组件</h2>`
+    })
+    const app = new Vue({
+        el: '#app',
+        data: {
+            name: 'hello'
+        },
+        // 局部组件语法糖
+        components: {
+            mycpn1: {
+                template: `
+        <h2>组件</h2>`
+            }
+        }
+    })
+</script>
+</body>
+</html>

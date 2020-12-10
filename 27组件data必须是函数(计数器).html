@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <mycpn></mycpn>
+</div>
+<script src="js/vue.js"></script>
+
+<template id="mycpn1">
+    <div>
+    <h2>当前计数: {{counter}}</h2>
+    <button @click="decrement">-</button>
+    <button @click="increment">+</button>
+    </div>
+</template>
+<script>
+
+
+    const app = new Vue({
+        el: '#app',
+        data: {
+            name: 'hello'
+        },
+        components: {
+            mycpn: {
+                template: "#mycpn1",
+
+                // 这里是函数是因为避免多个组件实例共用同一个对象,使用函数的话每次返回不同的对象
+                data() {
+                    return {
+                        counter: 0
+                    }
+                },
+                methods: {
+                    increment() {
+                        this.counter++
+                    },
+                    decrement() {
+                        this.counter--
+                    }
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>
