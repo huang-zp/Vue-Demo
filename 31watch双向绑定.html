@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h2>num1:{{num1}}</h2>
+    <h2>num2:{{num2}}</h2>
+    <cpn :number1="num1" :number2="num2" @putvalue1="getvalue1" @putvalue2="getvalue2"></cpn>
+</div>
+<script src="js/vue.js"></script>
+<template id="cpn">
+
+    <div>
+        <h2>number1:{{number1}}</h2>
+        <h2>dnumber1:{{dnumber1}}</h2>
+
+<!--        此处只是绑定-->
+<!--            <input type="text" v-model="dnumber1">-->
+
+<!--        <input type="text" :value="dnumber1" @input="putvalue1">-->
+            <input type="text" v-model="dnumber1">
+
+
+        <h2>number2:{{number2}}</h2>
+        <h2>dnumber2:{{dnumber2}}</h2>
+<!--            <input type="text" v-model="dnumber2">-->
+
+<!--        <input type="text" :value="dnumber2" @input="putvalue2">-->
+
+        <input type="text" v-model="dnumber2">
+    </div>
+</template>
+
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            num1: 1,
+            num2: 2
+        },
+        methods: {
+            getvalue1(value) {
+                this.num1 = parseInt(value)
+            },
+            getvalue2(value) {
+                this.num2 = parseInt(value)
+            }
+        },
+        components: {
+            cpn: {
+                template: "#cpn",
+                props: {
+                    number1:{
+                        type: Number
+                    },
+                    number2:{
+                        type: Number
+                    }
+                },
+                methods: {
+                    putvalue1(event) {
+                        this.dnumber1 = event.target.value
+                        this.$emit('putvalue1', this.dnumber1)
+
+                        this.dnumber2 = event.target.value / 100
+                        this.$emit('putvalue2', this.dnumber2)
+                    },
+                    putvalue2(event) {
+                        this.dnumber2 = event.target.value
+                        this.$emit('putvalue2', this.dnumber2)
+
+                        this.dnumber1 = event.target.value * 100
+                        this.$emit('putvalue1', this.dnumber1)
+                    }
+                },
+
+                // 绑定model的时候不能直接绑定props，要在data中把props的数据复制一份进行绑定
+                data() {
+                    return {
+                        dnumber1:this.number1,
+                        dnumber2:this.number2
+                    }
+                },
+                watch: {
+                    // 属性值发生改变就会触发
+                    dnumber1(newValue) {
+                        this.dnumber2 = newValue / 100
+                        this.$emit('putvalue1', newValue)
+                    },
+                    dnumber2(newValue) {
+                        this.dnumber1 = newValue * 100
+                        this.$emit('putvalue2', newValue)
+                    }
+                    // name(newValue,oldValue) {
+                    //
+                    // }
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>
