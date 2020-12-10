@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <cpn ref="bbb"></cpn>
+    <cpn ref="aaa"></cpn>
+    <cpn></cpn>
+    <button @click="getchild">按钮</button>
+</div>
+<script src="js/vue.js"></script>
+
+<template id="cpn">
+    <h2>子组件</h2>
+</template>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            name: 'hello'
+        },
+        methods: {
+            getchild() {
+                // 这种通过下标拿，不靠谱
+                // console.log(this.$children[0].name);
+
+                // 通过ref可以指定拿某一个子组件的数据
+                console.log(this.$refs.aaa.name);
+            }
+        },
+        components: {
+            cpn: {
+                template: '#cpn',
+                data() {
+                    return {
+                        name: '子组件name'
+                    }
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>
