@@ -14,7 +14,7 @@ export default {
   },
   data() {
     return {
-      message: 'hello lalaya'
+      message: 'hello l22ffa222laya'
     }
   }
 }

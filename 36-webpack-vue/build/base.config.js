@@ -1,11 +1,14 @@
 // 这个path包本身就在node里面，不需要安装
 const path = require('path')
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+
 module.exports = {
     entry: './src/main.js',
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, '../dist'),
         filename: 'maindist.js',
-        publicPath: 'dist/'
+        // publicPath: 'dist/'
     },
     module: {
         rules: [
@@ -59,5 +62,11 @@ module.exports = {
         alias: {
             'vue$': 'vue/dist/vue.esm.js'
         }
-    }
+    },
+    plugins: [
+        new webpack.BannerPlugin('最终版权归什么玩意'),
+        new HtmlWebpackPlugin({
+            template: 'index.html'
+        })
+    ]
 }
