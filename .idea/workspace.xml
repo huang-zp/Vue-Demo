@@ -25,8 +25,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="900e326f-62a1-40de-a1e0-d692b0779932" name="Default Changelist" comment="组件访问">
-      <change afterPath="$PROJECT_DIR$/33-插槽.html" afterDir="false" />
+    <list default="true" id="900e326f-62a1-40de-a1e0-d692b0779932" name="Default Changelist" comment="es6导入">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,6 +37,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="Less File" />
+        <option value="Vue Single File Component" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -57,41 +60,47 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="Less" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\HUANGZP\WebstormProjects\demo" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\HUANGZP\WebstormProjects\demo" />
+      <recent name="C:\Users\HUANGZP\WebstormProjects\demo\36-webpack\src\img" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\HUANGZP\WebstormProjects\demo\36-webpack\src\js" />
       <recent name="C:\Users\HUANGZP\WebstormProjects\demo" />
     </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.33-插槽.html">
-    <configuration name="30通信-父子通信结合model双向绑定.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/demo/30通信-父子通信结合model双向绑定.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
-    <configuration name="31通信-watch双向绑定.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/demo/31通信-watch双向绑定.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
-    <configuration name="32访问-父访问子.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/demo/32访问-父访问子.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="JavaScript Debug.index.html (2)">
     <configuration name="32访问-子访问父.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/demo/32访问-子访问父.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="33-插槽.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/demo/33-插槽.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
+    <configuration name="34-插槽作用域.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/demo/34-插槽作用域.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="index.html (1)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/demo/36-webpack-vue/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="index.html (2)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/demo/36-webpack-vue/dist/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:52504/demo/36-webpack/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.index.html (2)" />
+        <item itemvalue="JavaScript Debug.index.html (1)" />
+        <item itemvalue="JavaScript Debug.index.html" />
+        <item itemvalue="JavaScript Debug.34-插槽作用域.html" />
         <item itemvalue="JavaScript Debug.33-插槽.html" />
-        <item itemvalue="JavaScript Debug.32访问-子访问父.html" />
-        <item itemvalue="JavaScript Debug.32访问-父访问子.html" />
-        <item itemvalue="JavaScript Debug.31通信-watch双向绑定.html" />
-        <item itemvalue="JavaScript Debug.30通信-父子通信结合model双向绑定.html" />
       </list>
     </recent_temporary>
   </component>
@@ -110,7 +119,10 @@
       <workItem from="1607390927973" duration="15034000" />
       <workItem from="1607440398306" duration="94000" />
       <workItem from="1607479913097" duration="10637000" />
-      <workItem from="1607563503307" duration="10365000" />
+      <workItem from="1607563503307" duration="13472000" />
+      <workItem from="1607592000796" duration="749000" />
+      <workItem from="1607651773756" duration="16360000" />
+      <workItem from="1607910543312" duration="8487000" />
     </task>
     <task id="LOCAL-00001" summary="组件">
       <created>1607564714875</created>
@@ -147,7 +159,49 @@
       <option name="project" value="LOCAL" />
       <updated>1607581438064</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="插槽">
+      <created>1607582758591</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1607582758591</updated>
+    </task>
+    <task id="LOCAL-00007" summary="插槽作用域">
+      <created>1607585023608</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1607585023608</updated>
+    </task>
+    <task id="LOCAL-00008" summary="es6导入">
+      <created>1607591692820</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1607591692820</updated>
+    </task>
+    <task id="LOCAL-00009" summary="webpack loader">
+      <created>1607669143616</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1607669143616</updated>
+    </task>
+    <task id="LOCAL-00010" summary="webpack vue">
+      <created>1607673067922</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1607673067922</updated>
+    </task>
+    <task id="LOCAL-00011" summary="webpack plugin">
+      <created>1607678164284</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1607678164284</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,15 +229,26 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="组件" />
     <MESSAGE value="双向绑定" />
     <MESSAGE value="通信" />
     <MESSAGE value="组件访问" />
-    <option name="LAST_COMMIT_MESSAGE" value="组件访问" />
+    <MESSAGE value="插槽" />
+    <MESSAGE value="插槽作用域" />
+    <MESSAGE value="es6导入" />
+    <MESSAGE value="webpack loader" />
+    <MESSAGE value="webpack vue" />
+    <MESSAGE value="webpack plugin" />
+    <option name="LAST_COMMIT_MESSAGE" value="webpack plugin" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="148" y="66" key="DiffContextDialog" timestamp="1607673077421">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="148" y="66" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1607673077421" />
     <state width="1515" height="262" key="GridCell.Tab.0.bottom" timestamp="1607422606640">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -252,10 +317,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="207" y="115" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1607482392167" />
-    <state x="362" y="146" key="Vcs.Push.Dialog.v2" timestamp="1607581483749">
+    <state x="362" y="146" key="Vcs.Push.Dialog.v2" timestamp="1607678165817">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="362" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1607581483749" />
+    <state x="362" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1607678165817" />
+    <state x="561" y="147" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1607669126214">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="561" y="147" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1536.824@0.0.1536.824" timestamp="1607669126214" />
     <state x="404" y="173" key="run.anything.popup" timestamp="1607331040672">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
