@@ -1,4 +1,4 @@
-# clitest
+# vuetestcli
 
 ## Project setup
 ```
