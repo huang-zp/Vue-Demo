@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // async 特性
+    // 1.声明一个方法是异步的
+    // 2.返回一个Promise对象
+    // 3.如果在函数中return一个直接量，async会把这个直接量通过Promise.reslove()封装成Promise对象
+    // 4.所以使用这个aysnc函数的时候，因为这个函数返回promise对象，所以用then()来处理这个Promise对象
+    //
+    // await 特性
+    // 1.await可以在等什么：任意表达式的结果，可以是直接量，可以是普通函数调用，可以是new Promise()新建的对象，可以是返回Promise对象的普通函数，可以是async函数
+    // 2.await 等待的不是一个 Promise 对象的时候，相当于 await Promise.resolve(...)。
+    // 3.它等到的是一个 Promise 对象，await 就忙起来了，它会阻塞后面的代码，等着 Promise 对象 resolve，然后得到 resolve 的值，作为 await 表达式的运算结果。
+    // !4.await 必须用在 async 函数中的原因。async 函数调用不会造成阻塞，它内部所有的阻塞都被封装在一个 Promise 对象中异步执行。
+
+    // 注意
+    // 1.当是一个返回promise的普通函数时，那边用await接收值，没一点影响
+    // 2.如果这个函数成了一个async函数,也返回一个promise 如：async function takelongtime(){return new Promise()}，那边也算await接收，其结果没影响。
+    // 但是await接收到的async函数返回的promise对象和return的并不是同一个
+    // function takeLongTime() {
+    //     return new Promise(resolve => {
+    //         setTimeout(() => resolve("long_time_value"), 1000);
+    //     });
+    // }
+    // async function test() {
+    //     const v = await takeLongTime();
+    //     console.log(v);
+    // }
+    // test();
+
+
+    // await和async的优势在于处理链式调用,之前的链式调用可以如此改:
+    // 链式调用，三次网络请求
+    // async function demo(){
+    //     let data1 = await new Promise((resolve, reject) => {
+    //         // setTimeout理解为一次请求
+    //         setTimeout(() => {
+    //             let data = '0'
+    //             console.log('第一次请求获得结果:', data);
+    //             // 成功后
+    //             resolve(data)
+    //             // 失败后
+    //             // reject('err')
+    //         }, 3000)
+    //     });
+    //
+    //     data1 += '1'
+    //
+    //     let data2 = await new Promise((resolve, reject) => {
+    //         setTimeout(()=>{
+    //             console.log('第二次请求获得结果:',data1);
+    //             // 成功后
+    //             resolve(data1)
+    //             // 失败后
+    //             // reject('err')
+    //         }, 3000)
+    //     })
+    //
+    //     data2 += '2'
+    //
+    //     let data3 = await new Promise((resolve, reject) => {
+    //         setTimeout(()=>{
+    //             console.log('第三次请求获得结果:',data2);
+    //             // 成功后
+    //             resolve(data2)
+    //             // 失败后
+    //             // reject('err')
+    //         }, 3000)
+    //     })
+    //
+    //     data3 += '3'
+    //     console.log(data3);
+    // }
+    // demo()
+
+
+    //更加清晰一点的链式调用
+    // 1.统一放到async函数种发起网络请求,async函数不会阻塞,因为内部所有的代码都封装到一个promise中异步执行,而异步执行的时候,await又会阻塞等待其后promise结果,所以会链式一步一步向下执行
+    // 2.如果第三次请求需要第一次和第二次请求的结果,这种方式会很请求,解决了参数传递
+    function step1(){
+        return new Promise((resolve, reject) => {
+            // setTimeout理解为一次请求
+            setTimeout(() => {
+                let data = '0'
+                console.log('第一次请求获得结果:', data);
+                // 成功后
+                resolve(data)
+                // 失败后
+                // reject('err')
+            }, 1000)
+        })
+    }
+    function step2(data){
+        data += '1'
+        return new Promise((resolve, reject) => {
+            setTimeout(()=>{
+                console.log('第二次请求获得结果:',data);
+                // 成功后
+                resolve(data)
+                // 失败后
+                // reject('err')
+            }, 1000)
+        })
+    }
+    function step3(data){
+        data += '2'
+        return new Promise((resolve, reject) => {
+            setTimeout(()=>{
+                console.log('第三次请求获得结果:',data);
+                // 成功后
+                resolve(data)
+                // 失败后
+                // reject('err')
+            }, 1000)
+        })
+    }
+
+
+    async function demo(){
+        const data1 = await step1()
+        const data2 = await step2(data1)
+        const data3 = await step3(data2)
+        console.log(data3+'3')
+        return 'success'
+    }
+    demo().then((message)=>{
+        console.log(message);
+    }).catch(err=>{
+        console.log(err);
+    })
+
+    // 中间有任何步骤的reject或者抛出错误,都可以在async返回的promise对象的.catch中捕捉到
+    // 如果不想被外部的promise对象捕捉,也可以在内部手动try catch进行捕捉处理,这样错误就到不了上一级,async返回的promise对象的捕捉不到
+
+    // 因为try括号内部定义的变量外部读取不了,所以在外部用let初始化
+    // async function demo(){
+    //     let data1, data2, data3
+    //     try{
+    //         data1 = await step1()
+    //         data2 = await step2(data1)
+    //         data3 = await step3(data2)
+    //     }catch (err)
+    //     {
+    //         console.log(err);
+    //     }
+    //     console.log(data3+'3')
+    //     return 'success'
+    // }
+    // demo().then((message)=>{
+    //     console.log(message);
+    // }).catch(err=>{
+    //     console.log(err);
+    // })
+</script>
+</body>
+</html>

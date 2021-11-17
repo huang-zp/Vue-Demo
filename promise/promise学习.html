@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    // 什么时候会用到promise
+    // 一般情况下有异步操作的时候，使用promise对这个异步操作进行封装
+    //
+    // 什么时候执行？
+    // 一般的时候 当new生成一个实例的时候，会执行构造函数，对传入的参数进行操作。
+    // 这里生成promise实例的时候传入了一个函数(executor函数)。所以当new的时候，也会对传入的函数进行操作也就是运行这个函数
+    //
+    // 这个函数(executor函数)接收两个参数，注意这两个函数不是让自己写的，是内部执行这个exec函数时传入的，我们只需要在异步成功或失败时分别调用
+
+
+    // <!--    第一种写法, resolve执行then, reject执行catch-->
+    // new Promise((resolve, reject)=>{
+    //     setTimeout(()=>{
+    //         resolve('成功执行')
+    //         reject('失败执行')
+    //     }, 1000)
+    // }).then((data)=>{
+    //     console.log(data)
+    // }).catch((res)=>{
+    //     console.log(res)
+    // })
+
+
+    // <!--    第二种写法, resolve执行then参数的第一个函数, reject执行then参数的第二个函数-->
+    // new Promise((resolve, reject)=>{
+    //     setTimeout(()=>{
+    //         resolve('成功执行')
+    //         // reject('失败执行')
+    //     }, 1000)
+    // }).then((data)=>{
+    //     console.log(data)
+    // }, (res)=>{
+    //     console.log(res)
+    // })
+
+
+    // promise三种状态
+    // 首先，当开发中有异步操作的时候，就可以给异步操作包装一个promise
+    //     异步操作之后promise会有三种状态
+    //
+    // pedding：等待状态，比如正在进行网络请求，或者定时器没有到时间。
+    // fulfill：满足状态，当我们主动回调了resolve时，就处于该状态，并且会回调.then()
+    // reject：拒绝状态，当我们主动回调了reject时，就处于该状态，并且会回调.catch(),或者是.then()中的第二个函数参数
+
+
+</script>
+</body>
+</html>
